@@ -1,0 +1,42 @@
+{%load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>log in</title>
+    <link rel="stylesheet" href="{% static 'Registration/css/style.css' %}">
+</head>
+<body>
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="form-box">
+            <form action="{%url 'login'%}" method="POST" name="Formfile"  onsubmit="return validation_login()">
+                {%csrf_token%}
+                <h2>Login</h2>
+                {%if error %}
+                <p style="color : red">{{error}}</p>
+                {%endif%}
+
+                <p id="result"></p>               
+                <div class="input-box">
+                    <i class="ri-mail-fill"></i>
+                    <input type="text" name="Email" placeholder="Email">
+                </div>
+                <div class="input-box">
+                    <i class="ri-git-repository-private-fill"></i>
+                    <input type="password" name="Password" placeholder="Password">
+                </div>
+                <div class="button">
+                    <input type="submit" value="Login" class="btn">
+                </div>
+                <div class="group">
+                    <span><a href="{%url 'signup' %}">Registration</a></span>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="{% static 'Registration/js/script.js' %}"></script>
+</body>
+</html>

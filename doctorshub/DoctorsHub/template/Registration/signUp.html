@@ -1,0 +1,58 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>registration</title>
+    <link rel="stylesheet" href="{% static 'Registration/css/style.css' %}">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" rel="stylesheet"/>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+</head>
+<body>
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="form-box">
+            <form action="{% url 'signup' %}" method="POST" name="Formfile" onsubmit="return validation()">
+            {%csrf_token%}
+                <h2>Register</h2>
+                <p id="result"></p>
+                <div class="input-box">
+                    <i class="ri-user-fill"></i>
+                    <input type="text" name="Username" placeholder="Username">
+                </div>                
+                <div class="input-box">
+                    <i class="ri-mail-fill"></i>
+                    <input type="text" name="Email" placeholder="Email">
+                </div>
+                <div class="input-box">
+                    <i class="ri-git-repository-private-fill"></i>
+                    <input type="password" name="Password" placeholder="Password">
+                </div>
+                <div class="input-box">
+                    <i class="ri-git-repository-private-fill"></i>
+                    <input type="password" name="cPassword" placeholder="Confirm Password">
+                </div>
+                <div class="button">
+                    <input type="submit" value="Register" class="btn" onclick="showPopupIfPasswordsMatch(event)">
+                </div>
+                <div class="group">
+                    <!-- <span><a href="#">Forget-Password</a></span> -->
+                    <span><a href="{%url 'login'%}">Login</a></span>
+                </div>
+            </form>
+        </div>
+
+        {% comment %} <div class="popup" id="popup">
+            <ion-icon name="checkmark-done-circle-outline"></ion-icon>            
+            <h2>Thank you</h2>
+            <p>Your were Registration Sucessfully. Thanks!</p>
+            <a href="{%url 'signup'%}"><button onclick="CloseSlide()">OK</button></a>
+        </div> {% endcomment %}
+    </div>
+
+    <script src="{% static 'Registration/js/script.js' %}"></script>
+</body>
+</html>

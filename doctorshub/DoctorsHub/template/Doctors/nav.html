@@ -1,0 +1,27 @@
+{%load static%}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>log in</title>
+    <link rel="stylesheet" href="{% static 'Doctors/css/style.css' %}">
+</head>
+<body>
+
+    <div class = "container">
+    <div class="navbar">
+        <ul class="nav">
+            <li><a href="{%url 'specialization' %}">Home</a></li>
+            <li><a href="{%url 'signup' %}">signUp</a></li>
+            <li><a href="{%url 'login' %}">logIn</a></li>
+            <li><a href="{%url 'logout' %}">logOut</a></li>
+        </ul>
+    </div>
+
+    <li class="hello">Hello {{user.0.userName}} to Doctors Hub </li>
+    {%block content%} {%endblock%}
+    
+</body>
+</html>

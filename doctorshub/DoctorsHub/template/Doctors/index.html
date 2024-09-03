@@ -1,0 +1,34 @@
+{% extends 'Doctors/nav.html' %}
+
+
+{%block content%} 
+    
+    <h1 class="searchTitle">Search for Specialization and Area</h1>
+
+    <form method="POST" action = "{% url 'specialization' %}" class="search">
+    {% comment %} url 'home' user_id=user.userId {% endcomment %}
+        {% csrf_token %}
+        {{user.0.userId}}
+        <input type="text" placeholder="Specialization" name="specialization">
+        <input type="text" placeholder="Area" name="area">
+        <button type="submit">Search</button>
+    </form>
+
+        <h1 class="doctorsTitle">Doctors</h1>
+        {%if error%}
+        <p class="error">{{error}}</p>
+        {%else%}
+        <div class = "doctorName">
+        {% for doctor in doctors %}
+            <form action = "{% url 'show_doctor_info' doctor_id=doctor.doctor_id %}" method = 'POST' class="doctorinfo">
+                {%csrf_token%}
+                
+                <button type=submit>{{ doctor.doctor_name }}</button>
+                
+            </form>
+        {% endfor %}
+        </div>
+        {%endif%}
+    </div>
+    {%endblock%}
+    
