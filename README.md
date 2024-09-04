@@ -6,11 +6,12 @@ Note => Foreign key of Specialization model in Doctor model, Because when admin 
 
 
 
+
     Project
 
 
 SignUp Page
-Restriction by javascript 
+Restriction by javascript       
            username => not empty, length >= 6, string.    
            email => not empty, includes @gmail.com.    
            password => not empty, length >= 6, includes special character.    
